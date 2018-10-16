@@ -14,14 +14,12 @@ int hand[10] {0,0,0,0,0,0,0,0,0,0};
 int size;
 bool game = true;
 bool ready = true;
-
 void take()
 {
 int card = 1 + rand() % 12;
 while(1)
 {
 int temp = 0;
-//cout « card« endl;
 for (int i = 1; i< 10; i++)
 {
 if(hand[i] == card)
@@ -34,7 +32,6 @@ if (temp < 4)
 break;
 };
 }
-
 for (int i = 1; i< 10; i++)
 {
 if(hand[i] == 0)
@@ -54,12 +51,10 @@ size = i-1;
 //cout« size « " - size"« endl;
 break;
 }
-
 cout << (char)deck[0][hand[i]]<< " ";
 }
 cout << endl;
 }
-
 int cal ()
 {
 int ace = 0;
@@ -73,7 +68,6 @@ if (size == 2 && deck[1][hand[size - i +1]] == 10)
 {
 auto_win();
 break;
-
 }
 continue;
 }
@@ -93,14 +87,12 @@ sum = 11 + ace - 1 + sum;
 if(sum > 21){game = false;};
 return sum;
 }
-
 void input_command()
 {
 char text;
 cin >> text;
 if (text == 't'){text = 'T';};
 if (text == 's'){text = 'S';};
-
 switch (text)
 {
 case 'T':
@@ -110,15 +102,12 @@ case 'S':
 game = false;
 ready = true;
 break;
-
 default:
 help_4_autists();
 input_command();
 break;
 }
-
 }
-
 void help_4_autists()
 {
 cout << "##########INFO##########"<<endl;
@@ -126,27 +115,21 @@ cout << "T - Get a fucking card" << endl;
 cout << "S - Ready to open" << endl;
 cout << "########################" << endl;
 }
-
 void get_adress()
 {
 cout << &hand[1]<<endl;
 }
-
 void auto_win()
 {
 game = false;
 cout << "Congratulations today, luck is on your side, now go rob another casino"<< endl;
 }
 };
-
-
-
 int main(int argc, char *argv[])
 {
 srand(time(nullptr));
 black_jack game;
 game.print_hand();
-
 while(game.game)
 {
 game.input_command();
@@ -155,7 +138,5 @@ cout<< "Ur Score is - " << game.cal()<<endl;
 //game.get_adress();
 }
 if (game.cal()>21){cout << "HA-Ha u lose"<< endl;};
-
-
 return 0;
 }
