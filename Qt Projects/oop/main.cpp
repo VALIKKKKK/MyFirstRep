@@ -57,11 +57,10 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
     srand(time(nullptr));
     int arr[10]{0};
-    fill_array(arr,10);
-    print_array(arr,10);
-    cout << endl;
-    insertion_sort(arr,10);
-    cout << endl;
-    print_array(arr,10);
+    int c = 5;
+    int b = 10;
+
+    iter_swap(c,b);
+    cout << c << " " << b;
     return a.exec();
 }
