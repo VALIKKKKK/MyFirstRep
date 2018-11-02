@@ -1,6 +1,7 @@
 #include <QCoreApplication>
 #include <iostream>
 #include <cmath>
+#include <vector>
 using namespace std;
 double task_4_1(double n)
 {
@@ -93,14 +94,36 @@ int gcd(int a, int b)
     }
     return b;
 }
+int gcd(int a, int b, int c)
+{
+    return gcd(gcd(a,b),c);
+}
 int lcm(int a, int b)
 {
     return a*b/gcd(a,b);
 }
+std::vector<int> all_divider(int a)
+{
+   std::vector<int> b;
+    for(int i = 1; i <= a; ++i)
+    {
+        if(a%i==0)
+        {
+
+            b.push_back(i);
+        }
+    }
+    return b;
+}
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    cout << lcm(27,3) << endl;
+    std::vector<int> c = all_divider(6);
+
+    for(auto i = c.begin(); i < c.end(); ++i)
+    {
+        cout << *i << endl;
+    }
     //fibanacci(5);
     return a.exec();
 }
