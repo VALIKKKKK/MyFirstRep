@@ -32,7 +32,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="algorithm.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="vector.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

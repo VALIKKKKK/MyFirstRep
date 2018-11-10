@@ -28,6 +28,8 @@ struct Vector
     reference operator[](size_type index);
     size_type size()const;
     reference at(size_type index);
+    void realocate();
+    size_type capacity();
 
 };
 
@@ -51,6 +53,11 @@ Vector<T>::~Vector(){delete[] storage;}
 template<class T>
 void Vector<T>::push_back(const T& value)
 {
+    if(vector_size == vector_capacity)
+    {
+        vector_capacity *= 2;
+        realocate();
+    }
     storage[vector_size++] = value;
 }
 
@@ -87,5 +94,21 @@ typename Vector<T>::reference Vector<T>::at(Vector<T>::size_type index)
     }
 }
 
+template<class T>
+void Vector<T>::realocate()
+{
+    T* temp = new T[vector_capacity];
+    for(int i = 0; i < size(); ++i)
+    {
+        temp[i] = storage[i];
+    }
+    delete[] storage;
+    storage = temp;
+}
 
+template<class T>
+typename Vector<T>::size_type Vector<T>::capacity()
+{
+    return vector_capacity;
+}
 #endif // VECTOR_H_INCLUDED
