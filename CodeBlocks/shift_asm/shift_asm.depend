@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1542751638 source:d:\codeblock\shift_asm\main.cpp
+	<iostream>
+	"asm.h"
+
+1542750723 d:\codeblock\shift_asm\asm.h
+
