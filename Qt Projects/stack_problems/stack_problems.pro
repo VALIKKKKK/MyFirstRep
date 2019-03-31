@@ -24,4 +24,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     stack.h \
-    array.h
+    first_problem.h \
+    second_problen.h
